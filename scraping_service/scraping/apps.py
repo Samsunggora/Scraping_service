@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class ScrapingConfig(AppConfig):
     name = 'scraping'
-    verbose_name = 'app for scraping'
+    verbose_name = 'App for scraping'

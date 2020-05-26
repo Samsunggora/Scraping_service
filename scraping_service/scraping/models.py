@@ -32,3 +32,20 @@ class Language(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Vacancy(models.Model):
+    url = models.URLField(unique=True, )
+    title = models.CharField(max_length=250, verbose_name='Vacancy title')
+    company = models.CharField(max_length=250, verbose_name='Company')
+    description = models.TextField(verbose_name='Description vacancy')
+    city = models.ForeignKey('City', on_delete=models.CASCADE, verbose_name='City')
+    language = models.ForeignKey('Language', on_delete=models.CASCADE, verbose_name='Programing language')
+    timestamp = models.DateField(auto_now_add=True, )
+
+    class Meta:
+        verbose_name = 'Vacancy in Site'
+        verbose_name_plural = "Vacancy's in Site"
+
+    def __str__(self):
+        return self.title
