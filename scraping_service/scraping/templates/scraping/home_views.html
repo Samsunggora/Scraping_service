@@ -7,12 +7,23 @@
     {% for obj in object_list %}
         <div class="card my-3">
             <div class="card-header">
-                <p><a href="{{ obj.url }}">{{ obj.title }}</a></p>
+                <h5><a href="{{ obj.url }}">{{ obj.title }}</a></h5>
             </div>
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text"><p>{{ obj.description }}</p></p>
+                <p class="card-text">
+                <p>{{ obj.description }}</p>
+                <p><small>{{ obj.city.name }}</small> |
+                    <small>{{ obj.language.name }}</small> |
+                    <small>{{ obj.timestamp|date:"d-m-Y" }}</small>
+                </p>
             </div>
         </div>
     {% endfor %}
+<form method="get" action="">
+    <label>City:</label><br>
+    <input type="text" name="city"><br>
+    <label>Language:</label><br>
+    <input type="text" name="language"><br>
+    <input type="submit" value="Search">
+</form>
 {% endblock %}

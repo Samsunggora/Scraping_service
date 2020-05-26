@@ -4,8 +4,6 @@ from scraping.utils import from_cyrillic_to_eng
 
 
 class City(models.Model):
-    """Sity in site"""
-
     name = models.CharField(max_length=50, verbose_name='Name of sity', unique=True, )
     slug = models.CharField(max_length=50, blank=True)
 
