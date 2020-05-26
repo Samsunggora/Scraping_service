@@ -1,13 +1,11 @@
 {% extends 'base.html' %}
-{% block title %}
-    1
-{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
     {% for obj in object_list %}
         <div class="card my-3">
             <div class="card-header">
-                <h5><a href="{{ obj.url }}">{{ obj.title }}</a></h5>
+                <a href="{{ obj.url }}">{{ obj.title }}</a>
             </div>
             <div class="card-body">
                 <p class="card-text">
@@ -18,12 +16,17 @@
                 </p>
             </div>
         </div>
+        {% empty %}
+            <h3>Unfortunately, your search returned no results</h3>
     {% endfor %}
-<form method="get" action="">
-    <label>City:</label><br>
-    <input type="text" name="city"><br>
-    <label>Language:</label><br>
-    <input type="text" name="language"><br>
-    <input type="submit" value="Search">
-</form>
+    <div class="row">
+        <div class="col-mx-6 mx-auto">
+            <form method="GET" action="">
+                <div class="form-group">
+                    {{ form.as_p }}
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}
